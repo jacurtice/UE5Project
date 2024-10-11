@@ -16,6 +16,18 @@ void AProp::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	UE_LOG(LogTemp, Warning, TEXT("Creating prop"));
+	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh Comp"));
+	if (MeshComp == nullptr)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Unable to create mesh component"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Created mesh component"));
+	}
+
+	RootComponent = MeshComp;
 }
 
 // Called every frame
